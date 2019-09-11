@@ -25,7 +25,7 @@
 int isKaprekar(int n) {
 
   if(n < 1) {
-    return 0;
+    return 0; // The '0' Used to be 'false', but see does not support bolean variables.
   }
 
   int i;
@@ -33,13 +33,13 @@ int isKaprekar(int n) {
   long square = n * (long) n;
   //compute the number of digits of the square
   int numDigits = (int) log10(n) + 1;
-  long modulus = 1;
+  long modulus = 1; //This used to be 0, but that caused a floating point error when calculating first and second.
   long first, second;
 
   //for each possible "split" of the square...
-  for(i=1; i<=numDigits; i++) {
+  for(i=1; i<=numDigits; i++) {     // Previously had 'numberOfDigits' insted of 'numDigits' resulting in an undeclared variable.
     //increase the modulus by a factor of 10
-    modulus *= 10;
+    modulus *= 10; // Previously had 'modulous' resulting in an undeclared variable.
 
     //split the square into two parts
     first = square / modulus;
